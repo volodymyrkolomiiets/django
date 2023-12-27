@@ -8,4 +8,5 @@ app_name = "demoapp"
 urlpatterns = [
     path("", views.index, name="index"),
     path("login/", views.login, name="login"),
+    path("redirect/", views.myview, name='myview'),
 ]
