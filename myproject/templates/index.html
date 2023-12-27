@@ -1,0 +1,21 @@
+{% comment %} An HTML form is submitted to the URL specified in the action attribute. {% endcomment %}
+<form action="/demoapp/login" method="post"> 
+
+    #form attributes 
+    
+    <input type='submit'> 
+    
+    </form> 
+
+{% comment %} Use the url tag to obtain the URL path dynamically, as shown below: {% endcomment %}
+<form action="{% url 'login' %}" method="post"> 
+    #form attributes 
+    <input type='submit'> 
+    </form> 
+
+{% comment %} Again, the login view may be present in multiple apps. Use the named URL qualified with the namespace to resolve the conflict. {% endcomment %}
+
+<form action="{% url 'demoapp:login' %}" method="post"> 
+    #form attributes 
+    <input type='submit'> 
+    </form> 
