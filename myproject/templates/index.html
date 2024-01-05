@@ -1,0 +1,15 @@
+<html> 
+<body> 
+{% if user.is_authenticated %} 
+         {#  to be rendeed if the user has been authenticated  #} 
+    {% endif %}	 
+<body> 
+</html>
+
+<html> 
+<body> 
+{% if perms.myapp.change_category %} 
+  {#  To be rendered for users having required permission #} 
+   {% endif %} 
+<body> 
+</html>
