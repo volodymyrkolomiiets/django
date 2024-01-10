@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title> My django website </title>
+</head>
+<body>
+    <h1> Hello {{ name | capfirst }} </h1>
+    <h1>  {{ nums | length }} - lenght of list</h1>
+    <h1>  {{ my_string | wordcount }} - number of words</h1>
+    <h1>  {{ nums | slice:"1:3" }} - slicing the list list</h1>
+</body>
+</html> 
+{% comment %} upper | lower | title | {% endcomment %}
