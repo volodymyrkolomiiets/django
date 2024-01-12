@@ -1,0 +1,11 @@
+<h2>  Hello, {{ person.name }} </h2>
+<h2> Profession: {{ person.profession }} </h2>
+
+<h2> Hello, {{ person.name }} </h2>
+<h2> Profession: {{ person.profession }} </h2>
+
+{% if user == "admin" %}
+<h2> Welcome {{user}} </h2> 
+{% else %}
+<h2> Welcome Guest. You dont have admin access </h2>
+{% endif %}

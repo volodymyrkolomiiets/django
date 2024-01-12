@@ -1,0 +1,7 @@
+{% if menu %}
+{% for item in menu %}
+<li> {{item.name}} : {{item.price}} </li>
+{% endfor %}
+{% else %}
+<h3> Mo Items to display <h3>
+{% endif %}
