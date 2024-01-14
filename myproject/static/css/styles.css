@@ -1,0 +1,112 @@
+styles.css
+
+/* Form Styles */
+.person-form {
+    width: 80%; /* Adjust the width as needed for smaller screens */
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px; /* Increased padding */
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ced4da;
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+/* Button Styles */
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px 18px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Table Styles */
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 14px; /* Increased padding */
+    text-align: left;
+}
+
+.table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Pagination Styles */
+.pagination {
+    margin-top: 20px;
+}
+
+.step-links {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+}
+
+.step-links a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.current {
+    padding: 10px;
+    background-color: #343a40;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .person-form {
+        width: 90%; /* Adjust the width for even smaller screens */
+    }
+}
+
+
+.form-check-label {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333; /* Adjust the color as needed */
+}
+
+/* Bold Styles for <b> Tag within Checkbox Label */
+.form-check-label b {
+    font-weight: bold;
+    color: #007bff; /* Adjust the color as needed */
+}

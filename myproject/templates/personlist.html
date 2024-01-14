@@ -1,0 +1,147 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Your Form Title</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <form method="post" action="{% url 'my_view' %}" class="person-form">
+            {% csrf_token %}
+
+  
+          
+
+            <div class="form-row">
+
+                    <div class="mb-3 form-check">
+                        <input class="form-check-input" type="checkbox" id="accurateSearch" name="accurate_search"
+                            {% if form.accurate_search.value %}checked{% endif %}>
+                        <label class="form-check-label" for="accurateSearch">
+                            Галочка для точного пошуку по фамілії або імені.
+                            <b> заповнювати форму із врахування регістрів літер </b>
+                        </label>
+                    </div>
+                
+                <div class="form-group col-md-4">
+                    <label for="{{ form.FirstName.id_for_label }}">Фамілія:</label>
+                    {{ form.FirstName }}
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="{{ form.LastName.id_for_label }}">Ім'я:</label>
+                    {{ form.LastName }}
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="{{ form.Patronym.id_for_label }}">По батькові:</label>
+                    {{ form.Patronym }}
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="{{ form.OtherInfo.id_for_label }}">Додаткова інформація:</label>
+                    {{ form.OtherInfo }}
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="{{ form.BirthDate.id_for_label }}">Дата народження:</label>
+                    {{ form.BirthDate }}
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="{{ form.ClientContact.id_for_label }}">Контакт особи:</label>
+                    {{ form.ClientContact }}
+                </div>
+            </div>
+
+            {% comment %} <div class="mb-3 form-check">
+                <input class="form-check-input" type="checkbox" id="accurateSearch" name="accurate_search"
+                    {% if form.accurate_search.value %}checked{% endif %}>
+                <label class="form-check-label" for="accurateSearch">
+                    Галочка для точного пошуку по фамілії або імені.
+                    <b> заповнювати форму із врахування регістрів літер </b>
+                </label>
+            </div> {% endcomment %}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <table class="table mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Фамілія</th>
+                    <th>Ім'я</th>
+                    <th>По батькові</th>
+                    <th>Додаткова інформація</th>
+                    <th>Дата народження</th>
+                    <th>Контакт особи</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in current_page %}
+                <tr>
+                    <td>{{ person.FirstName }}</td>
+                    <td>{{ person.LastName }}</td>
+                    <td>{{ person.Patronym }}</td>
+                    <td>{{ person.OtherInfo }}</td>
+                    <td>{{ person.BirthDate }}</td>
+                    <td>{{ person.ClientContact }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation mt-3">
+            <ul class="pagination justify-content-center">
+                {% if current_page.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1" aria-label="First">
+                        <span aria-hidden="true">&laquo;&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ current_page.previous_page_number }}" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+
+                <li class="page-item disabled">
+                    <span class="page-link">Page {{ current_page.number }} of {{ current_page.paginator.num_pages }}</span>
+                </li>
+
+                {% if current_page.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ current_page.next_page_number }}" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ current_page.paginator.num_pages }}" aria-label="Last">
+                        <span aria-hidden="true">&raquo;&raquo;</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

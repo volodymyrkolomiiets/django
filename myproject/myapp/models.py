@@ -12,5 +12,5 @@ class Person(models.Model):
     ClientContact = models.CharField(max_length=200, null=True)
     
     def __str__(self):
-        return f"{self.id} {self.FirstName} {self.LastName}"
+        return f"{self.FirstName} {self.LastName} {self.Patronym} {self.OtherInfo} {self.BirthDate} {self.ClientContact}"
     
